@@ -1,0 +1,123 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Aliaksandr QA Lab Sandbox</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <h1>Aliaksandr QA Lab Sandbox</h1>
+<section>
+  <h2>Bug Toggles</h2>
+
+  <label>
+    <input type="checkbox" data-testid="bug-flaky-login">
+    Flaky login (30% server error)
+  </label><br>
+
+  <label>
+    <input type="checkbox" data-testid="bug-case-sensitive-search">
+    Search is case-sensitive (bug)
+  </label><br>
+
+  <label>
+    <input type="checkbox" data-testid="bug-offbyone-pagination">
+    Pagination off-by-one (bug)
+  </label><br>
+
+  <label>
+    <input type="checkbox" data-testid="bug-slow-network">
+    Slow network (adds delay)
+  </label><br>
+
+  <label>
+    <input type="checkbox" data-testid="bug-table-error">
+    Table API error (500)
+  </label>
+
+</section>
+  <!-- LOGIN -->
+  <section>
+    <h2>Login</h2>
+    <input data-testid="login-email" placeholder="Email">
+    <input data-testid="login-password" type="password" placeholder="Password">
+    <button data-testid="login-submit">Sign in</button>
+    <div data-testid="login-status"></div>
+  </section>
+
+  <!-- SEARCH -->
+  <section>
+    <h2>Search</h2>
+    <input data-testid="search-input" placeholder="Search...">
+    <div data-testid="search-status"></div>
+  </section>
+
+  <!-- PRODUCTS -->
+  <section>
+    <button data-testid="open-modal">Open modal</button>
+    <h2>Products</h2>
+
+    <label>Category:</label>
+    <select data-testid="category-select">
+      <option value="all">All</option>
+      <option value="tool">Tool</option>
+      <option value="device">Device</option>
+    </select>
+<div data-testid="table-loading" style="display:none; margin-top:10px;">
+  Loading...
+</div>
+    <table border="1" style="margin-top:10px;">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Name</th>
+          <th>Category</th>
+        </tr>
+      </thead>
+      <tbody data-testid="table-body"></tbody>
+    </table>
+
+    <button data-testid="prev-page">Prev</button>
+    <span data-testid="page-info"></span>
+    <button data-testid="next-page">Next</button>
+  </section>
+
+  <!-- MODAL (only one) -->
+  <div id="modal" style="
+    display:none;
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    background:rgba(0,0,0,0.5);
+  ">
+    <div style="
+      background:white;
+      padding:20px;
+      margin:100px auto;
+      width:300px;
+    ">
+      <h3>Confirm action</h3>
+      <p>This is a test modal</p>
+
+      <button data-testid="confirm-btn">Confirm</button>
+      <button data-testid="close-modal">Close</button>
+    </div>
+  </div>
+<div data-testid="toast" style="
+  display:none;
+  position:fixed;
+  bottom:20px;
+  right:20px;
+  background:#222;
+  color:#fff;
+  padding:12px 14px;
+  border-radius:10px;
+">
+</div>
+  <script src="app.js"></script>
+</body>
+</html>

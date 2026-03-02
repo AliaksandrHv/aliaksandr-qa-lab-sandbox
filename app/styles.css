@@ -1,0 +1,33 @@
+body {
+  font-family: Arial;
+  padding: 20px;
+}
+
+section {
+  border: 1px solid #ccc;
+  padding: 12px;
+  margin: 12px 0;
+}
+
+input {
+  display: block;
+  margin: 8px 0;
+  padding: 8px;
+}
+
+button {
+  padding: 8px 12px;
+}
+/* --- QA Lab fixes: checkboxes --- */
+input[type="checkbox"] {
+  appearance: auto !important;
+  -webkit-appearance: checkbox !important;
+  width: auto !important;
+  height: auto !important;
+}
+
+label {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
