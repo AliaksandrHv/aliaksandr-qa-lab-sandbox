@@ -1,14 +1,14 @@
 import { defineConfig } from '@playwright/test';
 
 export default defineConfig({
+  testDir: './tests',
+
   use: {
-    baseURL: process.env.BASE_URL || 'http://127.0.0.1:3000',
+    // If you test a public site, set BASE_URL in GitHub Actions secrets/vars,
+    // or just use full URLs directly in your tests.
+    baseURL: process.env.BASE_URL,
+    trace: 'on-first-retry',
   },
 
-  webServer: {
-    command: 'npm run dev -- --host 0.0.0.0 --port 3000',
-    url: 'http://127.0.0.1:3000',
-    timeout: 120 * 1000,          // increase from 60s to 120s
-    reuseExistingServer: !process.env.CI,
-  },
+  reporter: [['html', { open: 'never' }]],
 });
