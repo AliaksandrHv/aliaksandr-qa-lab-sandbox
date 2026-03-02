@@ -20,6 +20,17 @@ Playwright end-to-end tests cover:
 - `tests/` - Playwright tests
 - `playwright.config.ts` - runs a local static server and executes tests
 
+## QA Use Cases
+
+This sandbox simulates real-world testing scenarios:
+
+• Flaky backend responses  
+• Slow network conditions  
+• Pagination issues  
+• Server errors  
+• UI modal interactions  
+• Persisted state testing  
+
 - ## Tech Stack
 
 • HTML / CSS / Vanilla JS
