@@ -1,45 +1,33 @@
+![Playwright Tests](https://github.com/AliaksandrHv/aliaksandr-qa-lab-sandbox/actions/workflows/playwright.yml/badge.svg)
+
 # Aliaksandr QA Lab Sandbox
 
-A small QA playground web app built to practice UI test automation with Playwright.
-🔗 Live Demo: https://aliaksandrhvozd.github.io/aliaksandr-qa-lab-sandbox/
+Small QA portfolio sandbox using **Playwright** + **GitHub Actions**.
 
-## Features
-## Automated Tests
+## What this repo shows
+- Playwright tests running locally and in CI
+- CI installs Playwright browsers
+- HTML report and test artifacts uploaded from CI runs
 
-Playwright end-to-end tests cover:
+## Live site (GitHub Pages)
+https://aliaksandrhv.github.io/
 
-• Page load verification
-• Bug toggle behaviors
-• Loading indicator handling
-• Server error simulation
-• Modal dialog interaction
-• Toast notifications
+## Run locally (Windows / PowerShell)
+1) Install dependencies:
+   - `npm ci`
 
-## Project structure
-- `app/` - the sandbox website (static HTML/CSS/JS)
-- `tests/` - Playwright tests
-- `playwright.config.ts` - runs a local static server and executes tests
+2) Install Playwright browsers:
+   - `npx playwright install`
 
-## QA Use Cases
+3) Run tests:
+   - `npx playwright test`
 
-This sandbox simulates real-world testing scenarios:
+4) Open HTML report:
+   - `npx playwright show-report`
 
-• Flaky backend responses  
-• Slow network conditions  
-• Pagination issues  
-• Server errors  
-• UI modal interactions  
-• Persisted state testing  
+## CI (GitHub Actions)
+Workflow: `.github/workflows/playwright.yml`
 
-- ## Tech Stack
-
-• HTML / CSS / Vanilla JS
-• Playwright Test (TypeScript)
-• GitHub Pages (deployment)
-• GitHub Actions (CI)
-
-## Run locally
-```bash
-npm install
-npx playwright install
-npm test
+Artifacts uploaded on every run:
+- `playwright-report/` (HTML report)
+- `test-results/` (screenshots/traces on failure)
