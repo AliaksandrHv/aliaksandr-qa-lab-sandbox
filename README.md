@@ -10,7 +10,7 @@ Small QA portfolio sandbox using **Playwright** + **GitHub Actions**.
 - HTML report and test artifacts uploaded from CI runs
 
 ## Live site (GitHub Pages)
-https://aliaksandrhv.github.io/
+https://aliaksandrhv.github.io/aliaksandr-qa-lab-sandbox/
 
 ## Run locally (Windows / PowerShell)
 1) Install dependencies:
