@@ -12,19 +12,31 @@ A small QA sandbox using **Playwright** + **GitHub Actions**.
 ## Live site
 https://aliaksandrhv.github.io/aliaksandr-qa-lab-sandbox/
 
-## Test coverage
-- Login with valid credentials returns `Logged in`
-- Login with invalid credentials returns `Invalid credentials`
-- Login server-error path returns `Server error, try again`
-- Search input updates status text (`Typing: ...`)
-- Product table pagination updates page state and enforces bounds
-- Category filter resets paging and shows expected rows
-- Modal confirm closes modal and shows toast
+## Test scenarios
+- Login success
+- Invalid credentials validation
+- Server error handling (flaky login toggle)
+- Product search input behavior
+- Pagination logic and bounds
+- Category filtering
+- Modal interaction and toast confirmation
+- Slow network loader behavior
+- API error handling for table data
 
-## Stability notes
-- Login flakiness is tied to the `Flaky login` bug toggle in `app.js`.
-- The login server-error test overrides `Math.random` in browser context for deterministic behavior.
-- Playwright runs against a local server (`npm run start`, `http://127.0.0.1:3000`) via `webServer` config.
+## Simulated bugs/toggles in app
+- Flaky login (`bug-flaky-login`)
+- Case-sensitive search (`bug-case-sensitive-search`)
+- Pagination off-by-one (`bug-offbyone-pagination`)
+- Slow network delay (`bug-slow-network`)
+- Table API error (`bug-table-error`)
+
+## Playwright report screenshot
+![Playwright HTML report example](docs/playwright-report.png)
+
+## Test runtime setup
+- Playwright runs against a local web server via `webServer` config.
+- `baseURL`: `http://127.0.0.1:3000`
+- Server command: `npm run start`
 
 ## Run locally (Windows / PowerShell)
 1) Install dependencies:
