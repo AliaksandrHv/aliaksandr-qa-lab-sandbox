@@ -20,9 +20,12 @@ https://aliaksandrhv.github.io/aliaksandr-qa-lab-sandbox/
 - Product search
 - Pagination logic
 - Category filtering
-- Modal interaction
+- Modal interaction (confirm, close button, overlay, Escape)
 - Slow network loader
 - API error handling
+- Bug toggle persistence after reload
+
+Detailed catalog (110 cases): [`docs/test-cases-catalog.md`](docs/test-cases-catalog.md)
 
 ## Simulated bugs/toggles in app
 - Flaky login (`bug-flaky-login`)
