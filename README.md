@@ -2,15 +2,29 @@
 
 # Aliaksandr QA Lab Sandbox
 
-Small QA portfolio sandbox using **Playwright** + **GitHub Actions**.
+A small QA sandbox using **Playwright** + **GitHub Actions**.
 
-## What this repo shows
-- Playwright tests running locally and in CI
+## What this project includes
+- End-to-end Playwright tests running locally and in CI
 - CI installs Playwright browsers
 - HTML report and test artifacts uploaded from CI runs
 
-## Live site (GitHub Pages)
+## Live site
 https://aliaksandrhv.github.io/aliaksandr-qa-lab-sandbox/
+
+## Test coverage
+- Login with valid credentials returns `Logged in`
+- Login with invalid credentials returns `Invalid credentials`
+- Login server-error path returns `Server error, try again`
+- Search input updates status text (`Typing: ...`)
+- Product table pagination updates page state and enforces bounds
+- Category filter resets paging and shows expected rows
+- Modal confirm closes modal and shows toast
+
+## Stability notes
+- `app.js` uses `Math.random()` in the login flow to simulate occasional server errors.
+- Playwright tests override `Math.random` in browser context so login tests stay deterministic.
+- Tests handle both root (`/`) and GitHub Pages subpath (`/aliaksandr-qa-lab-sandbox/`).
 
 ## Run locally (Windows / PowerShell)
 1) Install dependencies:
@@ -25,9 +39,9 @@ https://aliaksandrhv.github.io/aliaksandr-qa-lab-sandbox/
 4) Open HTML report:
    - `npx playwright show-report`
 
-## CI (GitHub Actions)
+## CI
 Workflow: `.github/workflows/playwright.yml`
 
-Artifacts uploaded on every run:
+On every push to `main`, CI runs the Playwright suite and uploads:
 - `playwright-report/` (HTML report)
 - `test-results/` (screenshots/traces on failure)
