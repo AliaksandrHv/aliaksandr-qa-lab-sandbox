@@ -88,6 +88,29 @@ test("category filter resets to first page", async ({ page }) => {
   await expect(page.getByTestId("table-body")).toContainText("Phone");
 });
 
+test("table error toggle shows server error row", async ({ page }) => {
+  await gotoApp(page);
+
+  await page.getByTestId("bug-table-error").check();
+  await page.getByTestId("next-page").click();
+
+  await expect(page.getByTestId("table-body")).toContainText("Server error (500)");
+  await expect(page.getByTestId("page-info")).toHaveText("");
+});
+
+test("slow network toggle shows loader during table update", async ({ page }) => {
+  await gotoApp(page);
+
+  const loading = page.getByTestId("table-loading");
+
+  await page.getByTestId("bug-slow-network").check();
+  await page.getByTestId("next-page").click();
+
+  await expect(loading).toBeVisible();
+  await expect(page.getByTestId("page-info")).toHaveText("Page 2 of 3");
+  await expect(loading).toBeHidden();
+});
+
 test("modal confirm shows toast and closes modal", async ({ page }) => {
   await gotoApp(page);
 

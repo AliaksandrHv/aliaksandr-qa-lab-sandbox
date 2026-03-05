@@ -110,8 +110,7 @@ async function renderTable() {
   if (bugSlowNetwork && bugSlowNetwork.checked) {
     await sleep(1200);
   }
-
-  // 🔥 simulate server error
+  // Simulate server error
   if (bugTableError && bugTableError.checked) {
     tableBody.innerHTML =
       '<tr><td colspan="3" style="color:red">Server error (500)</td></tr>';
@@ -206,6 +205,6 @@ document.addEventListener("keydown", e => {
 });
 
 confirmBtn.addEventListener("click", () => {
-  showToast("Confirmed ✅");
+  showToast("Confirmed \u2705");
   hideModal();
 });
