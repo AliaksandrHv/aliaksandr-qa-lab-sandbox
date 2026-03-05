@@ -2,19 +2,10 @@ import { test, expect } from "@playwright/test";
 
 async function gotoApp(page) {
   await page.goto("/");
-  const loginEmail = page.getByTestId("login-email");
-
-  if ((await loginEmail.count()) === 0) {
-    await page.goto("/aliaksandr-qa-lab-sandbox/");
-  }
-
-  await expect(loginEmail).toBeVisible();
+  await expect(page.getByTestId("login-email")).toBeVisible();
 }
 
 test("login succeeds with valid credentials", async ({ page }) => {
-  await page.addInitScript(() => {
-    Math.random = () => 0.99;
-  });
   await gotoApp(page);
 
   await page.getByTestId("login-email").fill("qa@example.com");
@@ -25,9 +16,6 @@ test("login succeeds with valid credentials", async ({ page }) => {
 });
 
 test("login rejects invalid credentials", async ({ page }) => {
-  await page.addInitScript(() => {
-    Math.random = () => 0.99;
-  });
   await gotoApp(page);
 
   await page.getByTestId("login-email").fill("qa@example.com");
@@ -43,6 +31,7 @@ test("login can show server error", async ({ page }) => {
   });
   await gotoApp(page);
 
+  await page.getByTestId("bug-flaky-login").check();
   await page.getByTestId("login-email").fill("qa@example.com");
   await page.getByTestId("login-password").fill("Pass123!");
   await page.getByTestId("login-submit").click();

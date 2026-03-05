@@ -4,6 +4,7 @@ const email = document.querySelector('[data-testid="login-email"]');
 const password = document.querySelector('[data-testid="login-password"]');
 const loginBtn = document.querySelector('[data-testid="login-submit"]');
 const loginStatus = document.querySelector('[data-testid="login-status"]');
+const bugFlakyLogin = document.querySelector('[data-testid="bug-flaky-login"]');
 
 const VALID = { email: "qa@example.com", password: "Pass123!" };
 
@@ -11,7 +12,8 @@ loginBtn.addEventListener("click", () => {
   const e = email.value.trim();
   const p = password.value.trim();
 
-  if (Math.random() < 0.3) {
+  // Flaky login bug is enabled only when the toggle is checked.
+  if (bugFlakyLogin && bugFlakyLogin.checked && Math.random() < 0.3) {
     loginStatus.textContent = "Server error, try again";
     return;
   }

@@ -22,9 +22,9 @@ https://aliaksandrhv.github.io/aliaksandr-qa-lab-sandbox/
 - Modal confirm closes modal and shows toast
 
 ## Stability notes
-- `app.js` uses `Math.random()` in the login flow to simulate occasional server errors.
-- Playwright tests override `Math.random` in browser context so login tests stay deterministic.
-- Tests handle both root (`/`) and GitHub Pages subpath (`/aliaksandr-qa-lab-sandbox/`).
+- Login flakiness is tied to the `Flaky login` bug toggle in `app.js`.
+- The login server-error test overrides `Math.random` in browser context for deterministic behavior.
+- Playwright runs against a local server (`npm run start`, `http://127.0.0.1:3000`) via `webServer` config.
 
 ## Run locally (Windows / PowerShell)
 1) Install dependencies:
