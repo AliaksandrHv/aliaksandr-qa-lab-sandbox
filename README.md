@@ -12,16 +12,17 @@ A small QA sandbox using **Playwright** + **GitHub Actions**.
 ## Live site
 https://aliaksandrhv.github.io/aliaksandr-qa-lab-sandbox/
 
-## Test scenarios
+## Test Coverage
+### Test scenarios covered
 - Login success
 - Invalid credentials validation
-- Server error handling (flaky login toggle)
-- Product search input behavior
-- Pagination logic and bounds
+- Server error handling
+- Product search
+- Pagination logic
 - Category filtering
-- Modal interaction and toast confirmation
-- Slow network loader behavior
-- API error handling for table data
+- Modal interaction
+- Slow network loader
+- API error handling
 
 ## Simulated bugs/toggles in app
 - Flaky login (`bug-flaky-login`)
@@ -30,8 +31,15 @@ https://aliaksandrhv.github.io/aliaksandr-qa-lab-sandbox/
 - Slow network delay (`bug-slow-network`)
 - Table API error (`bug-table-error`)
 
-## Playwright report screenshot
+## Playwright HTML report
+Screenshot from `playwright-report`.
 ![Playwright HTML report example](docs/playwright-report.png)
+
+## Optional next upgrade
+Page Object Model (POM) structure can be added as a follow-up:
+- `tests/pages/loginPage.ts`
+- `tests/pages/productsPage.ts`
+- `tests/pages/modal.ts`
 
 ## Test runtime setup
 - Playwright runs against a local web server via `webServer` config.
